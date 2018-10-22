@@ -38,3 +38,20 @@ P.S:As I didnt knew about the sensors used and as the more the parameters more t
    rosrun map_server map_saver -f <filename>
  
    Done this is how you can create a map with Rosbag file. 
+-----------------------------------------------------------------------------------------------------------------------------
+
+The other method I use to create map for my own robot is rtabmap_ros which is state of art Visual SLAM algorithm. To create a map using RTAB Map but the requirements are the robot should be equipped with Kinect and Lidar and rosbag should contain topics as /camera/rgb/image_color,/camera/depth/image,/camera/rgb/info with all the other topics like odom and tf.
+
+1. Launch the default rtabmap launch file that is obtained with the package 
+
+   roslaunch rtabmap.launch rtabmap_args:="--delete_db_on_start" 
+   
+   Also if the topic are not in the default state we can remap.
+   
+2. Now start the bag file 
+
+   rosbag play <filename.bag>
+ 
+3. Save the map from RTAB Map GUI
+
+Hence made can be made by this also and its much simple as there is GUI and we can use it to tune parameters and also be cna save the whole recording in db then tune the parameters and see the changes in the map.
