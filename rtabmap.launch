@@ -1,0 +1,16 @@
+<launch>
+
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <arg name="frame_id"   		    value="camera_link" />
+        <arg name="rgb_topic"               default="/camera/rgb/image_color" />
+        <arg name="depth_topic"             default="/camera/depth/image" />
+        <arg name="camera_info_topic"       default="/camera/rgb/camera_info" />
+        <arg name="visual_odometry"         default="true"/>          <!-- Launch rtabmap visual odometry node -->
+        <arg name="odom_topic"              default="/odom"/>         <!-- Odometry topic used if visual_odometry is false -->
+        <arg name="odom_args"               default="--delete_db_on_start"/>
+        <arg name="subscribe_scan"          default="false"/>
+	<arg name="cfg"                     default="$(find rtabmap_ros)/launch/config/config.ini" />
+    </include>
+    
+</launch>
